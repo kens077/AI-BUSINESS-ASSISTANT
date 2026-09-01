@@ -82,11 +82,11 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://ai-business-assistant-1-n11w.onrender.com",
         "http://127.0.0.1:5500",
         "http://localhost:5500",
-        "https://ai-business-assistant-1-n11w.onrender.com",
     ],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
