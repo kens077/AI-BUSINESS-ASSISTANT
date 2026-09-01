@@ -84,6 +84,7 @@ app.add_middleware(
     allow_origins=[
         "http://127.0.0.1:5500",
         "http://localhost:5500",
+        "https://ai-business-assistant-1-n11w.onrender.com",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -251,7 +252,6 @@ async def upload_business_data(
     temp_path = None
 
     try:
-
         file_content = await file.read()
 
         with tempfile.NamedTemporaryFile(
@@ -263,7 +263,6 @@ async def upload_business_data(
 
             temp_path = temp_file.name
 
-
         result = import_business_file(
             db=db,
             business_id=business_id,
@@ -272,14 +271,12 @@ async def upload_business_data(
 
         return result
 
-
     except ValueError as error:
 
         raise HTTPException(
             status_code=400,
             detail=str(error),
         )
-
 
     except Exception as error:
 
@@ -289,7 +286,6 @@ async def upload_business_data(
             status_code=500,
             detail=f"Import failed: {str(error)}",
         )
-
 
     finally:
 
