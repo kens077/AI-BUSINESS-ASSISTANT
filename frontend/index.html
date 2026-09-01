@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>AI Business Assistant</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="header">
+
+    <div class="hero">
+
+        <div class="hero-badge">
+            <span class="status-dot"></span>
+            AI-Powered Business Intelligence
+        </div>
+
+        <h1>
+            AI Business Assistant
+        </h1>
+
+        <p class="hero-description">
+            Turn your business data into clear insights,
+            intelligent analytics, and actionable answers.
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     BUSINESS SETUP
+====================================================== -->
+
+<section class="setup-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                GET STARTED
+            </span>
+
+            <h2>
+                Business Setup
+            </h2>
+
+            <p class="helper-text">
+                Create your business workspace before
+                importing your data.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="setup-form">
+
+        <input
+            type="text"
+            id="business-name"
+            placeholder="Business name"
+        >
+
+        <input
+            type="text"
+            id="business-industry"
+            placeholder="Industry"
+        >
+
+        <input
+            type="text"
+            id="business-description"
+            placeholder="Business description"
+        >
+
+        <button id="create-business-button">
+            Create Business
+        </button>
+
+    </div>
+
+
+    <p
+        id="business-message"
+        class="form-message"
+    ></p>
+
+</section>
+
+
+
+<!-- =====================================================
+     DATA UPLOAD
+====================================================== -->
+
+<section class="upload-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                DATA IMPORT
+            </span>
+
+            <h2>
+                Upload Business Data
+            </h2>
+
+            <p class="helper-text">
+                Import your Excel or CSV file and let the
+                assistant analyze your business automatically.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="upload-box">
+
+        <div class="upload-icon">
+
+            <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+            >
+
+                <path
+                    d="M12 16V4"
+                />
+
+                <path
+                    d="M7 9l5-5 5 5"
+                />
+
+                <path
+                    d="M4 20h16"
+                />
+
+            </svg>
+
+        </div>
+
+
+        <div class="upload-content">
+
+            <h3>
+                Choose your business file
+            </h3>
+
+            <p>
+                Drag and drop your file here or browse
+                from your computer.
+            </p>
+
+            <span>
+                XLSX &nbsp;•&nbsp; XLS &nbsp;•&nbsp; CSV
+            </span>
+
+        </div>
+
+
+        <label
+            for="business-file"
+            class="file-button"
+        >
+            Browse Files
+        </label>
+
+
+        <input
+            type="file"
+            id="business-file"
+            accept=".xlsx,.xls,.csv"
+        >
+
+
+        <div
+            id="selected-file"
+            class="selected-file"
+        >
+        </div>
+
+
+        <button
+            id="upload-button"
+            class="upload-action"
+        >
+            Upload & Analyze
+        </button>
+
+    </div>
+
+
+    <p
+        id="upload-message"
+        class="form-message"
+    ></p>
+
+</section>
+
+
+
+<!-- =====================================================
+     METRICS
+====================================================== -->
+
+<section class="metrics-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                OVERVIEW
+            </span>
+
+            <h2>
+                Business Overview
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard">
+
+
+        <div class="card">
+
+            <div class="metric-top">
+                <span class="metric-label">
+                    Customers
+                </span>
+
+                <span class="metric-icon">
+                    👥
+                </span>
+            </div>
+
+            <p id="customer-count">
+                0
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="metric-top">
+                <span class="metric-label">
+                    Products
+                </span>
+
+                <span class="metric-icon">
+                    ◈
+                </span>
+            </div>
+
+            <p id="product-count">
+                0
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="metric-top">
+                <span class="metric-label">
+                    Total Sales
+                </span>
+
+                <span class="metric-icon">
+                    ↗
+                </span>
+            </div>
+
+            <p id="sales-count">
+                0
+            </p>
+
+        </div>
+
+
+
+        <div class="card featured-card">
+
+            <div class="metric-top">
+                <span class="metric-label">
+                    Total Revenue
+                </span>
+
+                <span class="metric-icon">
+                    ₹
+                </span>
+            </div>
+
+            <p id="revenue">
+                ₹0
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="metric-top">
+                <span class="metric-label">
+                    Average Sale
+                </span>
+
+                <span class="metric-icon">
+                    ≈
+                </span>
+            </div>
+
+            <p id="average-sale">
+                ₹0
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="metric-top">
+                <span class="metric-label">
+                    Quantity Sold
+                </span>
+
+                <span class="metric-icon">
+                    #
+                </span>
+            </div>
+
+            <p id="quantity-sold">
+                0
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ANALYTICS
+====================================================== -->
+
+<section class="analytics-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                PERFORMANCE
+            </span>
+
+            <h2>
+                Business Analytics
+            </h2>
+
+            <p class="helper-text">
+                Understand which products and customers
+                are driving your business.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="analytics-grid">
+
+
+        <div class="analytics-card">
+
+            <div class="analytics-card-header">
+
+                <div>
+
+                    <span class="mini-label">
+                        PRODUCTS
+                    </span>
+
+                    <h3>
+                        Top Products
+                    </h3>
+
+                </div>
+
+                <span class="analytics-symbol">
+                    ↗
+                </span>
+
+            </div>
+
+
+            <div id="top-products">
+
+                <p class="analytics-loading">
+                    Loading product analytics...
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="analytics-card">
+
+            <div class="analytics-card-header">
+
+                <div>
+
+                    <span class="mini-label">
+                        CUSTOMERS
+                    </span>
+
+                    <h3>
+                        Top Customers
+                    </h3>
+
+                </div>
+
+                <span class="analytics-symbol">
+                    ◉
+                </span>
+
+            </div>
+
+
+            <div id="top-customers">
+
+                <p class="analytics-loading">
+                    Loading customer analytics...
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INSIGHTS
+====================================================== -->
+
+<section class="insights-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                INTELLIGENCE
+            </span>
+
+            <h2>
+                Business Insights
+            </h2>
+
+            <p class="helper-text">
+                AI-generated observations based on your
+                business performance.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div id="insights">
+
+        <p class="insight-loading">
+            Upload your business data to see insights.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MANUAL DATA
+====================================================== -->
+
+<section class="management">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                DATA MANAGEMENT
+            </span>
+
+            <h2>
+                Add Data Manually
+            </h2>
+
+            <p class="helper-text">
+                Add individual records when you don't need
+                to upload an entire file.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="forms-grid">
+
+
+        <!-- CUSTOMER -->
+
+        <div class="form-card">
+
+            <div class="form-card-icon">
+                👤
+            </div>
+
+            <h3>
+                Add Customer
+            </h3>
+
+            <p>
+                Create a new customer record.
+            </p>
+
+
+            <input
+                type="text"
+                id="customer-name"
+                placeholder="Customer name"
+            >
+
+
+            <input
+                type="email"
+                id="customer-email"
+                placeholder="Customer email"
+            >
+
+
+            <button id="add-customer-button">
+                Add Customer
+            </button>
+
+
+            <p
+                id="customer-message"
+                class="form-message"
+            ></p>
+
+        </div>
+
+
+
+        <!-- PRODUCT -->
+
+        <div class="form-card">
+
+            <div class="form-card-icon">
+                ◈
+            </div>
+
+            <h3>
+                Add Product
+            </h3>
+
+            <p>
+                Add a product to your catalogue.
+            </p>
+
+
+            <input
+                type="text"
+                id="product-name"
+                placeholder="Product name"
+            >
+
+
+            <input
+                type="number"
+                id="product-price"
+                placeholder="Price"
+                min="0"
+                step="0.01"
+            >
+
+
+            <button id="add-product-button">
+                Add Product
+            </button>
+
+
+            <p
+                id="product-message"
+                class="form-message"
+            ></p>
+
+        </div>
+
+
+
+        <!-- SALE -->
+
+        <div class="form-card">
+
+            <div class="form-card-icon">
+                ↗
+            </div>
+
+            <h3>
+                Record Sale
+            </h3>
+
+            <p>
+                Record a completed transaction.
+            </p>
+
+
+            <input
+                type="number"
+                id="sale-product-id"
+                placeholder="Product ID"
+                min="1"
+            >
+
+
+            <input
+                type="number"
+                id="sale-customer-id"
+                placeholder="Customer ID"
+                min="1"
+            >
+
+
+            <input
+                type="number"
+                id="sale-quantity"
+                placeholder="Quantity"
+                min="1"
+                value="1"
+            >
+
+
+            <button id="add-sale-button">
+                Record Sale
+            </button>
+
+
+            <p
+                id="sale-message"
+                class="form-message"
+            ></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     AI ASSISTANT
+====================================================== -->
+
+<section class="assistant">
+
+    <div class="assistant-glow"></div>
+
+
+    <div class="assistant-header">
+
+        <div>
+
+            <span class="section-label">
+                AI ASSISTANT
+            </span>
+
+            <h2>
+                Ask Your Business Assistant
+            </h2>
+
+            <p class="helper-text">
+                Ask questions about your customers,
+                products, sales, revenue, or business
+                performance.
+            </p>
+
+        </div>
+
+        <div class="ai-status">
+            <span class="status-dot"></span>
+            Online
+        </div>
+
+    </div>
+
+
+    <div class="question-wrapper">
+
+        <textarea
+            id="question"
+            placeholder="Ask something like: What is my best-selling product?"
+        ></textarea>
+
+
+        <button id="ask-button">
+            Ask Assistant
+            <span>→</span>
+        </button>
+
+    </div>
+
+
+    <div
+        id="answer"
+        class="answer"
+    >
+        Upload your business data and ask a question.
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+    <span>
+        AI Business Assistant
+    </span>
+
+    <span>
+        Intelligent business insights
+    </span>
+
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+
