@@ -4,7 +4,16 @@ from sqlalchemy.orm import Session
 import os
 import tempfile
 
-from app.db.database import SessionLocal
+from app.db.database import SessionLocal, Base, engine
+
+# Import all models so SQLAlchemy knows about them
+from app.models.business import Business
+from app.models.customer import Customer
+from app.models.product import Product
+from app.models.sale import Sale
+
+# Create database tables
+Base.metadata.create_all(bind=engine)
 
 from app.services.insights_service import get_business_insights
 from app.services.import_service import import_business_file
